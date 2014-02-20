@@ -1,0 +1,22 @@
+{
+  "name": "scram",
+  "version": "0.1.0",
+  "description": "Report processing scripts",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "coffee index.coffee"
+  },
+  "author": "Eli Doran <eli@elidoran.com>",
+  "license": "PRIVATE",
+  "dependencies": {
+    "coffee-script": "~1.7.1",
+    "line-by-line": "~0.1.1",
+    "nopt": "~2.2.0",
+    "debug": "~0.7.4",
+    "console-debug": "~0.1.1"
+  },
+  "bin": {
+    "scram": "./bin/scram.coffee"
+  }
+}
