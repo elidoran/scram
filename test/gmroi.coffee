@@ -3,8 +3,17 @@ fs = require 'fs'
 path = require 'path'
 LineByLineReader = require 'line-by-line'
 
-inputFile = path.resolve __dirname, 'gmroi-buyline-input.txt'
-outputFile = path.resolve __dirname, 'gmroi-buyline-output.csv'
+args = require ('yargs')
+  .usage('Usage:\n  $0 -input <input file> -output <output file>')
+  .demand(['input', 'output'])
+  .alias('i', 'input')
+  .alias('o', 'output')
+  .describe('i', 'The GMROI report from Eclipse')
+  .describe('o', 'The file to save the CSV results into')
+  .argv
+
+inputFile = path.resolve args.input
+outputFile = path.resolve args.output
 
 reader = new LineByLineReader inputFile, { skipEmptyLines: true }
 
@@ -14,6 +23,7 @@ skipNames = [
     '9'
     'Grand Total'
     'New Priceline'
+    'New Buyline'
     'MISC PRICE LINE'
     ]
 skipLineCount = 4
@@ -149,5 +159,3 @@ strip = (ch, value) ->
     newValue = ''
     newValue += c for c in value when c isnt ch
     newValue
-
-
