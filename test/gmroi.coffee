@@ -3,8 +3,8 @@ fs = require 'fs'
 path = require 'path'
 LineByLineReader = require 'line-by-line'
 
-inputFile = path.resolve __dirname, 'gmroi-input.txt'
-outputFile = path.resolve __dirname, 'gmroi-output.csv'
+inputFile = path.resolve __dirname, 'gmroi-buyline-input.txt'
+outputFile = path.resolve __dirname, 'gmroi-buyline-output.csv'
 
 reader = new LineByLineReader inputFile, { skipEmptyLines: true }
 
